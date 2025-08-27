@@ -11,9 +11,24 @@ namespace Microsoft___Back_End_Development_with_.NET
     {
         static void Main(string[] args)
         {
+            //Deserialization
+
             string json = "{\"Name\": \"Laptop\", \"Price\": 999.99, \"Tags\": [\"Electronics\", \"Computers\"]}";
-            Product product = JsonConvert.DeserializeObject<Product>(json);
-            Console.WriteLine($"Product: {product.Name}, Price: {product.Price}, Tags: {string.Join(", ", product.Tags)}");
+            Product laptop = JsonConvert.DeserializeObject<Product>(json);
+            Console.WriteLine($"Deserialized object: \n Product: {laptop.Name}, Price: {laptop.Price}, Tags: {string.Join(", ", laptop.Tags)}");
+
+            //Serialization
+
+            Product smartphone = new Product
+            {
+                Name = "Smartphone",
+                Price = 799.99f,
+                Tags = new List<string> { "Electronics", "Mobile" },
+            };
+
+            string smartphoneJson = JsonConvert.SerializeObject(smartphone, Formatting.Indented);
+
+            Console.WriteLine($"Serialized object: \n {smartphoneJson}");
         }
     }
 }
