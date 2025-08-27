@@ -1,3 +1,5 @@
+using Routing__AttributeRouting_and_Dependency_Injection;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -5,6 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddSingleton<IMyService, MyService>();
 
 var app = builder.Build();
 
@@ -14,7 +18,23 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.Use(async (context, next) =>
+{
+    var myService = context.RequestServices.GetRequiredService<IMyService>();
 
+    myService.LogCreation("First Middleware");
+
+    await next();
+});
+
+app.Use(async (context, next) =>
+{
+    var myService = context.RequestServices.GetRequiredService<IMyService>();
+
+    myService.LogCreation("Second Middleware");
+
+    await next();
+});
 
 app.Run();
 
