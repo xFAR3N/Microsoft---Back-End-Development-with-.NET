@@ -12,7 +12,8 @@ namespace Microsoft___Back_End_Development_with_.NET
         static void Main(string[] args)
         {
             string json = "{\"Name\": \"Laptop\", \"Price\": 999.99, \"Tags\": [\"Electronics\", \"Computers\"]}";
-            
+            Product product = JsonConvert.DeserializeObject<Product>(json);
+            Console.WriteLine($"Product: {product.Name}, Price: {product.Price}, Tags: {string.Join(", ", product.Tags)}");
         }
     }
 }
