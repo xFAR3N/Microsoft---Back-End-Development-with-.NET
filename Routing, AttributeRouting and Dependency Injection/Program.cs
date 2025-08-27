@@ -1,14 +1,13 @@
-using Routing__AttributeRouting_and_Dependency_Injection;
+using Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddSingleton<IMyService, MyService>();
+//builder.Services.AddScoped<IMyService, MyService>();
+//builder.Services.AddTransient<IMyService, MyService>();
 
 var app = builder.Build();
 
@@ -34,6 +33,11 @@ app.Use(async (context, next) =>
     myService.LogCreation("Second Middleware");
 
     await next();
+});
+app.MapGet("/", (IMyService myService) =>
+{
+    myService.LogCreation("Root");
+    return Results.Ok("Check the console for service creation logs.");
 });
 
 app.Run();

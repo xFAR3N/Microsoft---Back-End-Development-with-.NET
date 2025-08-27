@@ -1,4 +1,4 @@
-﻿namespace Routing__AttributeRouting_and_Dependency_Injection
+﻿namespace Middleware
 {
     public class MyService : IMyService
     {
