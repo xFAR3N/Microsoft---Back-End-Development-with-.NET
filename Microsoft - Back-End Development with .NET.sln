@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Implementation of .Net Libr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Creating and Exploring ASP.NET Core Web API", "Creating and Exploring ASP.NET Core Web API\Creating and Exploring ASP.NET Core Web API.csproj", "{FF5E6B34-5436-4881-A548-28F086A51C56}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Routing, AttributeRouting and Dependency Injection", "Routing, AttributeRouting and Dependency Injection\Routing, AttributeRouting and Dependency Injection.csproj", "{997A30B4-26FA-4DA5-8194-4AA4CB8E47EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{FF5E6B34-5436-4881-A548-28F086A51C56}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF5E6B34-5436-4881-A548-28F086A51C56}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF5E6B34-5436-4881-A548-28F086A51C56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{997A30B4-26FA-4DA5-8194-4AA4CB8E47EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{997A30B4-26FA-4DA5-8194-4AA4CB8E47EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{997A30B4-26FA-4DA5-8194-4AA4CB8E47EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{997A30B4-26FA-4DA5-8194-4AA4CB8E47EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
