@@ -5,8 +5,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddSingleton<IMyService, MyService>();
-//builder.Services.AddScoped<IMyService, MyService>();
+//builder.Services.AddSingleton<IMyService, MyService>();
+builder.Services.AddScoped<IMyService, MyService>();
 //builder.Services.AddTransient<IMyService, MyService>();
 
 var app = builder.Build();
