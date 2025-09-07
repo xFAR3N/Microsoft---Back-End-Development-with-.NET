@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Middleware", "Routing, Attr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ErrorHandlingAndLogging", "ErrorHandlingAndLogging\ErrorHandlingAndLogging.csproj", "{F6F6BB6B-D7B2-42A9-9092-014D0E8D8A27}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serialization", "Serialization\Serialization.csproj", "{3B373425-8E91-4069-9A5B-3BD07209D451}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{F6F6BB6B-D7B2-42A9-9092-014D0E8D8A27}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6F6BB6B-D7B2-42A9-9092-014D0E8D8A27}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6F6BB6B-D7B2-42A9-9092-014D0E8D8A27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B373425-8E91-4069-9A5B-3BD07209D451}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B373425-8E91-4069-9A5B-3BD07209D451}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B373425-8E91-4069-9A5B-3BD07209D451}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B373425-8E91-4069-9A5B-3BD07209D451}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
