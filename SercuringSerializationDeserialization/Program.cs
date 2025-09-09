@@ -19,9 +19,9 @@ namespace SercuringSerializationDeserialization
                     return Convert.ToBase64String(hashBytes);
                 }
             }
-            public void EncryptData()
+            public void EncryptData(User user)
             {
-                Password = Convert.ToBase64String(Encoding.UTF8.GetBytes(Password));
+                Password = Convert.ToBase64String(Encoding.UTF8.GetBytes(user.Password));
             }
         }
         public static User DeserializeUserData(string json, bool isTrustedSource)
@@ -57,7 +57,7 @@ namespace SercuringSerializationDeserialization
             string serializedData = SerializeUserData(user);
 
             User deserializeData = DeserializeUserData(serializedData, true);
-            Console.WriteLine("Serialized Data:\n" + generatedHash);
+            Console.WriteLine("Serialized Data:\n" + serializedData);
         }
     }
 }
