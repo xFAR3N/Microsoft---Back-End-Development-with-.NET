@@ -7,7 +7,49 @@ var blogs = new List<Blog>
 };
 
 app.MapGet("/", () => "I am root!");
+app.MapGet("/blogs", () =>
+{
+    return blogs;
+});
 
+app.MapGet("/blogs/{id}", (int id) =>
+{
+    if(id < 0 || id >= blogs.Count)
+    {
+        return Results.NotFound();
+    }
+    return Results.Ok(blogs[id]); 
+});
+
+app.MapPost("/blog", (Blog blog) =>
+{
+    blogs.Add(blog);
+    return Results.Created($"/blogs/{blogs.Count - 1}", blog);
+});
+
+app.MapDelete("/blogs/{id}", (int id) =>
+{
+    if (id < 0 || id >= blogs.Count)
+    {
+        return Results.NotFound();
+    }
+    else
+    {
+        var blog = blogs[id];
+        blogs.RemoveAt(id);
+        return Results.NoContent();
+    }
+});
+
+app.MapPut("/blogs/{id}", (int id, Blog blog) =>
+{
+    if (id < 0 || id >= blogs.Count)
+    {
+        return Results.NotFound();
+    }
+    blogs[id] = blog;
+    return Results.Ok(blog);
+});
 app.Run();
 
 public class Blog
