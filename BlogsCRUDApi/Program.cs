@@ -1,24 +1,71 @@
+using Microsoft.AspNetCore.Http.HttpResults;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
 var app = builder.Build();
 var blogs = new List<Blog>
 {
     new Blog { Title = "My First Post", Body = "This is my first post" },
     new Blog { Title = "My Second Post", Body = "This is my second post" },
 };
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+app.Use(async (context, next) =>
+{
+    var startTime = DateTime.UtcNow;
+    Console.WriteLine($"Start Time: {DateTime.UtcNow}");
+    await next.Invoke();
+    var duration = DateTime.UtcNow - startTime;
+    Console.WriteLine($"Response Time: {duration.TotalMilliseconds} ms");
+});
 
-app.MapGet("/", () => "I am root!");
+app.Use(async (context, next) =>
+{
+    Console.WriteLine(context.Request.Path);
+    await next();
+    Console.WriteLine(context.Response.StatusCode);
+});
+
+app.UseWhen(context => context.Request.Method != "GET",
+    appBuilder => appBuilder.Use(async (context, next) =>
+    {
+        var extractedPassword = context.Request.Headers["X-Api-Key"];
+        if (extractedPassword == "thisIsABadPassword")
+        {
+            await next.Invoke();
+        }
+        else
+        {
+            context.Response.StatusCode = 500;
+            await context.Response.WriteAsync("Invalid API Key");
+        }
+    })
+);
+app.MapGet("/", () => "I am root!").ExcludeFromDescription();
 app.MapGet("/blogs", () =>
 {
     return blogs;
 });
 
-app.MapGet("/blogs/{id}", (int id) =>
+app.MapGet("/blogs/{id}", Results<Ok<Blog>, NotFound> (int id) =>
 {
     if(id < 0 || id >= blogs.Count)
     {
-        return Results.NotFound();
+        return TypedResults.NotFound();
     }
-    return Results.Ok(blogs[id]); 
+    return TypedResults.Ok(blogs[id]); 
+}).WithOpenApi(operation =>
+{
+    operation.Parameters[0].Description = "This is id of a blog to retrieve";
+    operation.Summary = "Get single blog";
+    operation.Description = "Returns a single blog";
+    return operation;
 });
 
 app.MapPost("/blog", (Blog blog) =>

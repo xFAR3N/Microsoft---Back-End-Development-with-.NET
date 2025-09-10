@@ -7,7 +7,7 @@ GET {{BlogsCRUDApi_HostAddress}}/blogs
 
 POST {{BlogsCRUDApi_HostAddress}}/blog
 Content-Type: application/json
-
+X-Api-Key: thisIsABadPassword
 {
   "title": "My Third Blog",
   "body": "This is my third blog"
