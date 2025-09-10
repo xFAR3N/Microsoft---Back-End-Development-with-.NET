@@ -1,6 +1,35 @@
 @BlogsCRUDApi_HostAddress = http://localhost:5077
+###
 
-GET {{BlogsCRUDApi_HostAddress}}/weatherforecast/
-Accept: application/json
+GET {{BlogsCRUDApi_HostAddress}}/blogs
+
+###
+
+POST {{BlogsCRUDApi_HostAddress}}/blog
+Content-Type: application/json
+
+{
+  "title": "My Third Blog",
+  "body": "This is my third blog"
+}
+
+###
+
+@id=1
+DELETE {{BlogsCRUDApi_HostAddress}}/blogs/{{id}}
+
+###
+
+GET {{BlogsCRUDApi_HostAddress}}/blogs/{{id}}
+
+###
+
+PUT {{BlogsCRUDApi_HostAddress}}/blogs/{{id}}
+Content-Type: application/json
+
+{
+    "title": "Updated Blog",
+  "body": "This is updated blog"
+}
 
 ###
