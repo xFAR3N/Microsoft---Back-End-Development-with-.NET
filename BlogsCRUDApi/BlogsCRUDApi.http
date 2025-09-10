@@ -1,0 +1,6 @@
+@BlogsCRUDApi_HostAddress = http://localhost:5077
+
+GET {{BlogsCRUDApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
