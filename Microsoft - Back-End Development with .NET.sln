@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImplementingMiddlewareCompo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogsCRUDApi", "BlogsCRUDApi\BlogsCRUDApi.csproj", "{7D1F5CC4-AA19-41FC-8C6C-D2B0D516F2A3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecuringMiddleware", "SecuringMiddleware\SecuringMiddleware.csproj", "{FC656005-F230-48E8-920B-34ACCF5F425D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{7D1F5CC4-AA19-41FC-8C6C-D2B0D516F2A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D1F5CC4-AA19-41FC-8C6C-D2B0D516F2A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D1F5CC4-AA19-41FC-8C6C-D2B0D516F2A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC656005-F230-48E8-920B-34ACCF5F425D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC656005-F230-48E8-920B-34ACCF5F425D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC656005-F230-48E8-920B-34ACCF5F425D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC656005-F230-48E8-920B-34ACCF5F425D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
