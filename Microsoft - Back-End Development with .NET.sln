@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogsCRUDApi", "BlogsCRUDAp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecuringMiddleware", "SecuringMiddleware\SecuringMiddleware.csproj", "{FC656005-F230-48E8-920B-34ACCF5F425D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManagementAPI", "UserManagementAPI\UserManagementAPI.csproj", "{0F344E8B-57FE-4122-B2D0-651A1C5E925F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{FC656005-F230-48E8-920B-34ACCF5F425D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC656005-F230-48E8-920B-34ACCF5F425D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC656005-F230-48E8-920B-34ACCF5F425D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F344E8B-57FE-4122-B2D0-651A1C5E925F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F344E8B-57FE-4122-B2D0-651A1C5E925F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F344E8B-57FE-4122-B2D0-651A1C5E925F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F344E8B-57FE-4122-B2D0-651A1C5E925F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
