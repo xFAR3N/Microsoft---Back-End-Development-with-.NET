@@ -10,18 +10,40 @@ namespace UserManagementAPI.Controller
         private static List<User> users = new();
 
         [HttpGet]
-        public ActionResult<IEnumerable<User>> GetAllUsers() => Ok(users);
+        public ActionResult<IEnumerable<User>> GetUsers([FromQuery] int page = 1, [FromQuery] int pageSize = 10)
+        {
+            var pagedUsers = users
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+
+            return Ok(pagedUsers);
+        }
+
 
         [HttpGet("{id}")]
         public ActionResult<User> GetUserById(int id)
         {
-            var user = users.FirstOrDefault(u => u.Id == id);
-            return user == null ? NotFound() : Ok(user);
+            try
+            {
+                var user = users.FirstOrDefault(u => u.Id == id);
+                if (user == null)
+                    return NotFound(new { Message = $"User with ID {id} not found." });
+
+                return Ok(user);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Message = "Internal server error", Details = ex.Message });
+            }
         }
 
         [HttpPost]
-        public ActionResult<User> CreateUser(User newUser)
+        public ActionResult<User> CreateUser([FromBody] User newUser)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             newUser.Id = users.Count + 1;
             users.Add(newUser);
             return CreatedAtAction(nameof(GetUserById), new { id = newUser.Id }, newUser);
